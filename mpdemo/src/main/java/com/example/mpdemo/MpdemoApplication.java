@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@MapperScan("com.example.mpdemo.mapper")
 public class MpdemoApplication {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MpdemoApplication.class);
