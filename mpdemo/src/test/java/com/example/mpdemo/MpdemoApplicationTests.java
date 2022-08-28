@@ -18,10 +18,16 @@ public class MpdemoApplicationTests {
     @Autowired
     public UserMapper userMapper;
 
+
+    @Test
+    public void findAll(){
+        List<User> list = userMapper.selectList(null);
+        System.out.println(list);
+    }
+
     @Test
     public void insertTest() {
-//        List<User> list = userMapper.selectList(null);
-//        System.out.println(list);
+
         User user = new User();
         user.setName("mary");
         user.setAge(35);
@@ -81,8 +87,21 @@ public class MpdemoApplicationTests {
 
         System.out.println(page.hasNext());//是否有下一页
         System.out.println(page.hasPrevious());//是否有上一页
+    }
 
-
+    //根据id删除
+    @Test
+    public void testDeleteById(){
+        User user = new User();
+        user.setId(4l);
+        val i = userMapper.deleteById(user);
+        System.out.println(i);
+    }
+    //批量删除
+    @Test
+    public void testBatchDelete(){
+        val users = userMapper.deleteBatchIds(Arrays.asList(5L, 6L));
+        System.out.println(users);
     }
 
 

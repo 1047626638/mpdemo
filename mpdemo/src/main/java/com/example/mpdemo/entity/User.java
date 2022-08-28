@@ -20,5 +20,7 @@ public class User {
     @Version
     @TableField(fill = FieldFill.INSERT)
     private Integer version;//版本号
+    @TableLogic
+    private Integer deleted;//删除标志 1-已删除，0-未删除
 
 }

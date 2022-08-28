@@ -1,11 +1,16 @@
 spring:
 #数据源
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/mybatis_plus?serverTimezone=GMT%2B8
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+    url: jdbc:p6spy:mysql://localhost:3306/mybatis_plus?userSSL=false
     username: root
     password: root
 #mybatis日志
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  #逻辑删除值为1,不删除为0
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
