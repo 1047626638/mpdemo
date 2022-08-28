@@ -1,5 +1,6 @@
 package com.example.mpdemo;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.mpdemo.entity.User;
 import com.example.mpdemo.mapper.UserMapper;
@@ -104,7 +105,35 @@ public class MpdemoApplicationTests {
         System.out.println(users);
     }
 
+    //复杂条件查询
+    @Test
+    public void testQuery(){
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        //ge gt le lt: >= > <= <
+//        queryWrapper.ge("age","35");
 
+        //eq ne: = !=
+//        queryWrapper.eq("age","35");
+
+        //like: 模糊查询
+//        queryWrapper.like("name","m");
+
+        //orderByDesc/Asc:排序
+//        queryWrapper.orderByDesc("id");
+
+        //last:语句最后拼接sql语句
+//        queryWrapper.last("limit 1");
+
+        //between:范围
+        queryWrapper.between("age","20","40");
+
+        //select:指定列
+        queryWrapper.select("age","name");
+        val users = userMapper.selectList(queryWrapper);
+        System.out.println(users);
+
+
+    }
 
 
 
